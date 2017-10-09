@@ -10,11 +10,11 @@ import {
   Dimensions,
   Image
 } from 'react-native';
-import images from '../Dominos/dominoImages'
 import DominoTile from '../Dominos/DominoTile'
 import {shuffle} from '../../helpers'
+import {connect} from 'react-redux'
 
-export default class Viewport extends Component{
+class Viewport extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ export default class Viewport extends Component{
     };
   }
   componentWillMount() {
-    let imageKeys = shuffle(Object.keys(images))
+    let imageKeys = shuffle(Object.keys(this.props.dominoImageData))
     this.setState({
       domKeys: imageKeys
     })
@@ -30,6 +30,7 @@ export default class Viewport extends Component{
     
   render(){
     let {domKeys} = this.state 
+    let images = this.props.dominoImageData
     let hand = domKeys.slice(0, 7).map((tileName, index)=>{
       return(
         <DominoTile key={index} imageData={images[tileName]}/>
@@ -66,3 +67,11 @@ let styles = StyleSheet.create({
     left: 0,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    dominoImageData: state.dominoImageData,
+  }
+}
+
+export default connect(mapStateToProps)(Viewport)
