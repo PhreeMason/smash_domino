@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import { Provider } from 'react-redux'
-import Viewport from './app/Components/Viewport'
+import Board from './app/Components/Board'
 import store from './app/redux/store'
 
 
@@ -15,7 +15,7 @@ export default class App extends Component{
   render() {
     return (
       <Provider store={store}>
-        <Viewport />
+        <Board />
       </Provider>
     );
   }
