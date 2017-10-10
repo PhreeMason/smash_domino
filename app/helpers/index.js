@@ -1,3 +1,5 @@
+// import { Dimensions } from 'react-native';
+
 export const shuffle = (array) => {
   let currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -17,3 +19,9 @@ export const shuffle = (array) => {
   return array;
 }
 
+
+// export const deviceUnits = () => {
+//   let {width, height} = Dimensions.get('window')
+//   this.width = width/100
+//   this.height = height/100
+// }
