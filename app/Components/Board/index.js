@@ -13,6 +13,7 @@ import {
 import DominoTile from '../Dominos/DominoTile'
 import {shuffle} from '../../helpers'
 import {connect} from 'react-redux'
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
 class Board extends Component{
   constructor(props) {
