@@ -7,16 +7,29 @@ import {
 } from 'react-native';
 
 import { Provider } from 'react-redux'
-import Board from './app/Components/Board'
+import MainPage from './app/containers/MainPage'
 import store from './app/redux/store'
+import { Root } from "native-base";
+import { StackNavigator } from "react-navigation";
 
+const AppNavigator = StackNavigator(
+  {
+    MainPage: { screen: MainPage },
+  },
+  {
+    initialRouteName: "MainPage",
+    headerMode: "none"
+  }
+);
 
-export default class App extends Component{
+export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Board />
-      </Provider>
+      <Root>
+        <Provider store={store}>
+          <AppNavigator />
+        </Provider>
+      </Root>
     );
   }
 }
